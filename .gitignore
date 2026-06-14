@@ -1,0 +1,25 @@
+# Compiled class files
+*.class
+target/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# TomEE
+apache-tomee/
+
+# Log files
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+
+# IDE
+.idea/
+*.iml

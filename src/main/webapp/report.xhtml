@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+
+<h:head>
+	<title>Geisternetz melden</title>
+
+	<h:outputStylesheet library="css" name="styles.css" />
+
+</h:head>
+
+<h:body>
+	<div class="header">
+		<h:graphicImage name="logo.png"/>
+		<div>
+			<h1>Geisternetz melden</h1>
+			<p>Helfen Sie uns, Geisternetze zu dokumentieren</p>
+		</div>
+	</div>
+
+	<div class="container container-small">
+		<div class="info-box">
+			<p>
+				<strong>Wichtig:</strong> Geben Sie die genauen GPS-Koordinaten des
+				Fundortes an. Sie können anonym bleiben – in diesem Fall ist die
+				Angabe von Ihrem Namen und Ihrer Telefonnummer nicht erforderlich.
+			</p>
+		</div>
+
+		<h:form>
+			<!-- Standort -->
+			<div class="form-group">
+				<label for="latitude">Latitude (GPS-Breitengrad)*</label>
+				<h:inputText id="latitude" value="#{ghostNetBean.latitude}"
+					required="true" requiredMessage="Latitude ist erforderlich" />
+			</div>
+
+			<div class="form-group">
+				<label for="longitude">Longitude (GPS-Längengrad)*</label>
+				<h:inputText id="longitude" value="#{ghostNetBean.longitude}"
+					required="true" requiredMessage="Longitude ist erforderlich" />
+			</div>
+
+			<!-- Größe -->
+			<div class="form-group">
+				<label for="size">Geschätzte Größe des Netzes (in Meter)*</label>
+				<h:inputText id="size" value="#{ghostNetBean.size}" required="true"
+					requiredMessage="Größe ist erforderlich"
+					placeholder="z.B. klein, mittel, groß" />
+			</div>
+
+			<!-- Beschreibung -->
+			<div class="form-group">
+				<label for="description">Beschreibung</label>
+				<h:inputTextarea id="description"
+					value="#{ghostNetBean.description}" />
+			</div>
+
+			<!-- Anonym -->
+			<div class="checkbox-group">
+				<h:selectBooleanCheckbox id="anonymous"
+					value="#{ghostNetBean.anonymous}" />
+				<label for="anonymous" style="display: inline; font-weight: normal;">
+					Anonym melden (keine Kontaktdaten erforderlich) </label>
+			</div>
+
+			<!-- Reporter Daten -->
+			<div class="form-group">
+				<label for="reporterFirstName">Vorname (falls nicht anonym)</label>
+				<h:inputText id="reporterFirstName"
+					value="#{ghostNetBean.reporterFirstName}" />
+			</div>
+
+			<div class="form-group">
+				<label for="reporterLastName">Nachname (falls nicht anonym)</label>
+				<h:inputText id="reporterLastName"
+					value="#{ghostNetBean.reporterLastName}" />
+			</div>
+
+			<div class="form-group">
+				<label for="reporterPhone">Telefon (falls nicht anonym)</label>
+				<h:inputText id="reporterPhone"
+					value="#{ghostNetBean.reporterPhone}" />
+			</div>
+
+			<!-- Buttons -->
+			<div class="button-group">
+				<h:commandButton value="Melden"
+					action="#{ghostNetBean.reportGhostNet}" />
+				<h:button value="Abbrechen" outcome="index"
+					styleClass="button-secondary" />
+			</div>
+		</h:form>
+	</div>
+	<div class="footer">
+		<p>
+			© 2026 Shea Sepherd |
+			<h:link value="Impressum" outcome="impressum" />
+			|
+			<h:link value="Datenschutz" outcome="datenschutz" />
+		</p>
+	</div>
+</h:body>
+</html>

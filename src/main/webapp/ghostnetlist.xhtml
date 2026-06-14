@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:c="jakarta.tags.core">
+
+<h:head>
+	<title>Geisternetz-Liste</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+	<div class="header">
+		<h:graphicImage name="logo.png"/>
+		<div class="header-text">
+			<h1>Ghost Net Fishing</h1>
+			<p>Melden und Bergen von Geisternetzen</p>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="button-group">
+			<h:form>
+				<h:commandButton value="Zurück zur Startseite" action="index" styleClass="btn-action" />
+			</h:form>
+		</div>
+
+		<h:dataTable value="#{ghostNetBean.ghostNets}" var="net" border="1"
+			cellpadding="5" cellspacing="0" width="100%">
+
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+                #{net.id}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Latitude (Breitengrad)</f:facet>
+                #{net.latitude}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Longitude (Längengrad)</f:facet>
+                #{net.longitude}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Größe (in Meter)</f:facet>
+                #{net.size}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Beschreibung</f:facet>
+				<div class="col-beschreibung">#{net.description != null ?
+					net.description : '-'}</div>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Status</f:facet>
+                #{net.status}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">Gemeldet am</f:facet>
+				<h:outputText value="#{net.createdAt}">
+					<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"
+						type="localDateTime" />
+				</h:outputText>
+			</h:column>
+
+			<h:column>
+			
+					<f:facet name="header">Melder</f:facet>
+					<h:outputText value="Anonym" rendered="#{net.anonymous}" />
+					<h:outputText
+						value="#{net.reporter != null ? net.reporter.firstName.concat(' ').concat(net.reporter.lastName) : '-'}"
+						rendered="#{!net.anonymous}" />
+				</h:column>
+
+			<h:column>
+				<f:facet name="header">Bergung von</f:facet>
+    				#{net.rescuer != null ? net.rescuer.firstName.concat(' ').concat(net.rescuer.lastName) : '-'}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Als verschollen gemeldet von</f:facet>
+   					 #{net.lostReporter != null ? net.lostReporter.firstName.concat(' ').concat(net.lostReporter.lastName) : '-'}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Aktionen</f:facet>
+				<h:form styleClass="action-buttons">
+					<h:commandButton value="Bergung übernehmen" styleClass="btn-action"
+						action="#{ghostNetBean.prepareRescue(net.id)}" />
+					<h:commandButton value="Als geborgen melden"
+						styleClass="btn-action"
+						action="#{ghostNetBean.markAsRescued(net.id)}" />
+					<h:commandButton value="Als verschollen melden"
+						styleClass="btn-action btn-danger"
+						action="#{ghostNetBean.prepareLost(net.id)}" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+	</div>
+
+	<div class="footer">
+		<p>
+			© 2026 Shea Sepherd |
+			<h:link value="Impressum" outcome="impressum" />
+			|
+			<h:link value="Datenschutz" outcome="datenschutz" />
+		</p>
+	</div>
+</h:body>
+</html>

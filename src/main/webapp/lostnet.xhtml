@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+
+<h:head>
+	<title>Geisternetz als verschollen melden</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+	<div class="header">
+		<h:graphicImage name="logo.png"/>
+		<div class="header-text">
+			<h1>Geisternetz als verschollen melden</h1>
+			<p>Melden Sie ein Geisternetz als verschollen</p>
+		</div>
+	</div>
+
+	<div class="container container-small">
+		<div class="info-box">
+			<p>
+				<strong>Wichtig:</strong> Das Melden eines verschollenen
+				Geisternetzes ist nicht anonym möglich. Bitte geben Sie Ihre
+				Kontaktdaten an.
+			</p>
+		</div>
+
+		<h:form>
+			<div class="form-group">
+				<label for="lostReporterFirstName">Vorname*</label>
+				<h:inputText id="lostReporterFirstName"
+					value="#{ghostNetBean.lostReporterFirstName}" required="true"
+					requiredMessage="Vorname ist erforderlich" />
+			</div>
+
+			<div class="form-group">
+				<label for="lostReporterLastName">Nachname*</label>
+				<h:inputText id="lostReporterLastName"
+					value="#{ghostNetBean.lostReporterLastName}" required="true"
+					requiredMessage="Nachname ist erforderlich" />
+			</div>
+
+			<div class="form-group">
+				<label for="lostReporterPhone">Telefonnummer*</label>
+				<h:inputText id="lostReporterPhone"
+					value="#{ghostNetBean.lostReporterPhone}" required="true"
+					requiredMessage="Telefonnummer ist erforderlich" />
+			</div>
+
+			<div class="button-group">
+				<h:commandButton value="Als verschollen melden"
+					styleClass="btn-danger" action="#{ghostNetBean.markAsLost}" />
+				<h:button value="Abbrechen" outcome="ghostnetlist"
+					styleClass="button-secondary" />
+			</div>
+		</h:form>
+	</div>
+
+	<div class="footer">
+		<p>
+			© 2026 Shea Sepherd |
+			<h:link value="Impressum" outcome="impressum" />
+			|
+			<h:link value="Datenschutz" outcome="datenschutz" />
+		</p>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+
+<h:head>
+	<title>Bergung übernehmen</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+	<div class="header">
+		<h:graphicImage name="logo.png"/>
+		<div class="header-text">
+			<h1>Bergung übernehmen</h1>
+			<p>Tragen Sie sich für die Bergung eines Geisternetzes ein</p>
+		</div>
+	</div>
+
+	<div class="container container-small">
+		<div class="info-box">
+			<p>
+				<strong>Wichtig:</strong> Bitte geben Sie Ihre Kontaktdaten an,
+				damit wir Sie bei Rückfragen erreichen können.
+			</p>
+		</div>
+
+		<h:form>
+			<h:inputHidden value="#{ghostNetBean.selectedGhostNetId}" />
+
+			<div class="form-group">
+				<label for="rescuerFirstName">Vorname*</label>
+				<h:inputText id="rescuerFirstName"
+					value="#{ghostNetBean.rescuerFirstName}" required="true"
+					requiredMessage="Vorname ist erforderlich" />
+			</div>
+
+			<div class="form-group">
+				<label for="rescuerLastName">Nachname*</label>
+				<h:inputText id="rescuerLastName"
+					value="#{ghostNetBean.rescuerLastName}" required="true"
+					requiredMessage="Nachname ist erforderlich" />
+			</div>
+
+			<div class="form-group">
+				<label for="rescuerPhone">Telefonnummer*</label>
+				<h:inputText id="rescuerPhone" value="#{ghostNetBean.rescuerPhone}"
+					required="true" requiredMessage="Telefonnummer ist erforderlich" />
+			</div>
+
+			<div class="button-group">
+				<h:commandButton value="Bergung bestätigen"
+					action="#{ghostNetBean.registerForRescue}" />
+				<h:button value="Abbrechen" outcome="ghostnetlist"
+					styleClass="button-secondary" />
+			</div>
+		</h:form>
+	</div>
+	<div class="footer">
+		<p>
+			© 2026 Shea Sepherd |
+			<h:link value="Impressum" outcome="impressum" />
+			|
+			<h:link value="Datenschutz" outcome="datenschutz" />
+		</p>
+	</div>
+</h:body>
+</html>

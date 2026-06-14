@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+	background-color: #f5f5f5;
+}
+
+.header {
+	background-color: #548C82;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.header img {
+	position: absolute;
+	left: 30px; 
+	top: 50%; 
+	transform: translateY(-50%); 
+	height: 160px;
+	width: 160px;
+	object-fit: cover;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	overflow-x: auto; /* ← Das macht den Container scrollbar */
+}
+
+.container-small {
+	max-width: 600px;
+}
+
+/* Form Styles */
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.form-group input[type="text"], .form-group input[type="number"],
+	.form-group input[type="tel"], .form-group textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+.form-group textarea {
+	resize: vertical;
+	min-height: 100px;
+}
+
+.checkbox-group {
+	margin: 15px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+/* Button Styles */
+.button-group {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.button-group input[type="submit"], .button-group button {
+	padding: 10px 20px;
+	background-color: #548C82;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.button-group input[type="submit"]:hover, .button-group button:hover {
+	background-color: #46736b;
+}
+
+.button-secondary {
+	background-color: #666 !important;
+	color: white !important;
+	border: none !important;
+	cursor: pointer !important;
+	border-radius: 3px !important;
+}
+
+.button-secondary:hover {
+	background-color: #444 !important;
+}
+
+.action-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer !important;
+}
+
+.btn-action {
+	width: 100%;
+	padding: 6px 10px;
+	background-color: #548C82;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 12px;
+	text-align: center;
+}
+
+.btn-action:hover {
+	background-color: #46736b;
+}
+
+.btn-danger {
+	background-color: #cc3300 !important;
+}
+
+.btn-danger:hover {
+	background-color: #aa2200 !important;
+}
+
+/* Info Box */
+.info-box {
+	background-color: #e8f4f8;
+	border-left: 4px solid #548C82;
+	padding: 15px;
+	margin: 20px 0;
+	border-radius: 3px;
+}
+
+/* Beschreibung */
+.col-beschreibung {
+	min-width: 200px;
+	max-width: 250px;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.col-status {
+	min-width: 80px;
+	max-width: 120px;
+	white-space: normal;
+	word-wrap: break-word;
+	text-transform: capitalize;
+	text-transform: lowercase;
+}
+
+/* Responsive Design */
+@media ( max-width : 768px) {
+	.container {
+		padding: 10px;
+		margin: 5px;
+	}
+	.header h1 {
+		font-size: 1.5em;
+	}
+	.header p {
+		font-size: 0.9em;
+	}
+	.button-group {
+		flex-direction: column;
+	}
+	.button-group input[type="submit"], .button-group button {
+		width: 100%;
+	}
+
+	/* Tabelle scrollbar auf kleinen Geräten */
+	.container {
+		overflow-x: auto;
+	}
+	.form-group input[type="text"], .form-group textarea {
+		font-size: 16px; /* Verhindert Auto-Zoom auf iOS */
+	}
+}
+
+@media ( max-width : 480px) {
+	body {
+		margin: 10px;
+	}
+	.header {
+		padding: 10px;
+	}
+	.info-box {
+		padding: 10px;
+	}
+}
+
+/* Footer */
+.footer {
+	background-color: #548C82;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+.footer a {
+	color: white;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}

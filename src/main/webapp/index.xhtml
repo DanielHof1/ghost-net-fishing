@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+
+<h:head>
+	<title>Ghost Net Fishing</title>
+
+	<h:outputStylesheet library="css" name="styles.css" />
+
+</h:head>
+
+<h:body>
+	<div class="header">
+		<h:graphicImage name="logo.png"/>
+		<div class="header-text">
+			<h1>Ghost Net Fishing</h1>
+			<p>Melden und Bergen von Geisternetzen</p>
+		</div>
+	</div>
+
+		<div class="container">
+			<h2>Willkommen!</h2>
+			<p>Diese Anwendung unterstützt die Meldung und Bergung von
+				Geisternetzen im Meer.</p>
+
+			<div class="button-group">
+				<h:form>
+					<h:commandButton value="Geisternetz-Liste" action="ghostnetlist"
+						styleClass="btn-action" />
+				</h:form>
+				<h:form>
+					<h:commandButton value="Geisternetz melden" action="report"
+						styleClass="btn-action" />
+				</h:form>
+			</div>
+
+			<div class="info-box">
+				<h3>Über diese Anwendung</h3>
+				<ul>
+					<li><strong>Geisternetze melden:</strong> Helfen Sie uns,
+						herrenlose Fischernetze zu dokumentieren</li>
+					<li><strong>Bergung registrieren:</strong> Melden Sie sich zur
+						Bergung eines Netzes an</li>
+					<li><strong>Status verfolgen:</strong> Sehen Sie den aktuellen
+						Status aller gemeldeten Netze</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>
+				© 2026 Shea Sepherd |
+				<h:link value="Impressum" outcome="impressum" />
+				|
+				<h:link value="Datenschutz" outcome="datenschutz" />
+			</p>
+		</div>
+</h:body>
+</html>
